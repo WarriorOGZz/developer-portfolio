@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   Code2,
@@ -35,13 +35,11 @@ const NavBar = () => {
             WarriorOGZz
           </motion.div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
             {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                whileHover={{ color: '#6366f1' }}
                 className="text-gray-300 hover:text-primary transition-colors"
               >
                 {item}
@@ -49,7 +47,6 @@ const NavBar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-white"
@@ -58,7 +55,6 @@ const NavBar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -91,7 +87,6 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
-      {/* Animated background elements */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
@@ -107,7 +102,6 @@ const HeroSection = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -133,14 +127,14 @@ const HeroSection = () => {
             </p>
 
             <p className="text-gray-500 text-lg mb-8 leading-relaxed">
-              Creating beautiful and functional web experiences with cutting-edge technologies. I turn ideas into reality through code.
+              Creating beautiful and functional web experiences with cutting-edge technologies.
             </p>
 
             <div className="flex gap-4 flex-wrap">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl"
+                className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold flex items-center gap-2"
               >
                 View My Work
                 <ArrowRight size={20} />
@@ -148,14 +142,13 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/10 transition-colors"
+                className="px-8 py-3 border border-primary text-primary rounded-lg font-semibold hover:bg-primary/10"
               >
                 Get In Touch
               </motion.button>
             </div>
           </motion.div>
 
-          {/* Right floating element */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -186,7 +179,6 @@ const AboutSection = () => {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text"
         >
           About Me
@@ -196,35 +188,31 @@ const AboutSection = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
           >
             <p className="text-gray-400 text-lg leading-relaxed mb-6">
-              I'm a passionate developer with a love for creating innovative solutions. With expertise in full-stack development, I enjoy building applications that make a real difference.
+              I'm a passionate developer with a love for creating innovative solutions.
             </p>
             <p className="text-gray-400 text-lg leading-relaxed">
-              I'm constantly learning new technologies and best practices to stay ahead in the ever-evolving tech landscape. My goal is to build scalable, maintainable, and user-friendly applications.
+              I'm constantly learning new technologies and best practices to stay ahead.
             </p>
           </motion.div>
 
           <div className="grid gap-6">
             {[
-              { icon: Code2, title: 'Clean Code', desc: 'Writing maintainable and efficient code' },
-              { icon: Rocket, title: 'Performance', desc: 'Optimized applications for speed' },
+              { icon: Code2, title: 'Clean Code', desc: 'Maintainable and efficient code' },
+              { icon: Rocket, title: 'Performance', desc: 'Optimized for speed' },
               { icon: Users, title: 'Collaboration', desc: 'Working effectively with teams' },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm hover:border-primary/50 transition-colors group"
+                className="p-6 bg-white/5 border border-white/10 rounded-xl group"
               >
                 <div className="flex items-start gap-4">
                   <item.icon className="text-primary mt-1 flex-shrink-0" size={24} />
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h3>
+                    <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                     <p className="text-gray-500">{item.desc}</p>
                   </div>
                 </div>
@@ -251,7 +239,6 @@ const SkillsSection = () => {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text"
         >
           Skills & Technologies
@@ -263,25 +250,17 @@ const SkillsSection = () => {
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="p-6 bg-gradient-to-br from-primary/10 to-secondary/10 border border-white/10 rounded-xl backdrop-blur-sm hover:border-primary/50 transition-colors group"
+              className="p-6 bg-gradient-to-br from-primary/10 to-secondary/10 border border-white/10 rounded-xl"
             >
-              <h3 className="text-xl font-semibold mb-4 text-primary group-hover:text-secondary transition-colors">
+              <h3 className="text-xl font-semibold mb-4 text-primary">
                 {skill.category}
               </h3>
               <ul className="space-y-2">
                 {skill.items.map((item, j) => (
-                  <motion.li
-                    key={j}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (i * 0.1) + (j * 0.05) }}
-                    className="text-gray-400 flex items-center gap-2"
-                  >
+                  <li key={j} className="text-gray-400 flex items-center gap-2">
                     <span className="w-2 h-2 bg-primary rounded-full" />
                     {item}
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </motion.div>
@@ -296,21 +275,18 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: 'Project One',
-      desc: 'A modern web application built with React and Node.js. Features real-time updates, beautiful UI, and seamless performance.',
+      desc: 'A modern web application built with React and Node.js.',
       tags: ['React', 'Node.js', 'MongoDB'],
-      link: '#',
     },
     {
       title: 'Project Two',
-      desc: 'A responsive mobile app with intuitive design. Built using modern development practices and optimized for performance.',
+      desc: 'A responsive mobile app with intuitive design.',
       tags: ['Vue.js', 'Firebase', 'Mobile'],
-      link: '#',
     },
     {
       title: 'Project Three',
-      desc: 'An enterprise-level backend system with comprehensive API documentation. Scalable and production-ready.',
+      desc: 'An enterprise-level backend system.',
       tags: ['Python', 'PostgreSQL', 'Docker'],
-      link: '#',
     },
   ];
 
@@ -320,7 +296,6 @@ const ProjectsSection = () => {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text"
         >
           Featured Projects
@@ -332,43 +307,26 @@ const ProjectsSection = () => {
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-primary/50 transition-all"
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6"
             >
-              {/* Animated background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                <Code2 size={24} className="text-primary" />
+              </div>
 
-              <div className="relative p-6 h-full flex flex-col">
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                  <Code2 size={24} className="text-primary" />
-                </div>
+              <h3 className="text-xl font-semibold mb-3">
+                {project.title}
+              </h3>
+              <p className="text-gray-500 mb-6">{project.desc}</p>
 
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-gray-500 mb-6 flex-grow">{project.desc}</p>
-
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, j) => (
-                      <span
-                        key={j}
-                        className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full border border-primary/30"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <motion.a
-                    href={project.link}
-                    whileHover={{ gap: 8 }}
-                    className="inline-flex items-center gap-2 text-primary font-semibold group/link"
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag, j) => (
+                  <span
+                    key={j}
+                    className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full border border-primary/30"
                   >
-                    View Project
-                    <ExternalLink size={16} />
-                  </motion.a>
-                </div>
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.div>
           ))}
@@ -385,7 +343,6 @@ const ContactSection = () => {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
           className="text-4xl md:text-5xl font-bold mb-6 gradient-text"
         >
           Let's Work Together
@@ -394,43 +351,33 @@ const ContactSection = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
           className="text-xl text-gray-400 mb-12"
         >
-          Have a project in mind? Let's collaborate and create something amazing together!
+          Have a project in mind? Let's collaborate!
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-6 mb-12"
         >
           {[
-            { icon: Mail, label: 'Email', href: 'mailto:your-email@example.com' },
-            { icon: Github, label: 'GitHub', href: 'https://github.com/WarriorOGZz' },
-            { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
+            { icon: Mail, href: 'mailto:your-email@example.com' },
+            { icon: Github, href: 'https://github.com/WarriorOGZz' },
+            { icon: Linkedin, href: 'https://linkedin.com' },
           ].map((social, i) => (
             <motion.a
               key={i}
               href={social.href}
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-4 bg-white/5 border border-white/10 rounded-full hover:border-primary/50 transition-colors group"
+              className="p-4 bg-white/5 border border-white/10 rounded-full group"
             >
-              <social.icon size={28} className="text-primary group-hover:text-secondary transition-colors" />
+              <social.icon size={28} className="text-primary" />
             </motion.a>
           ))}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-gray-600 text-sm"
-        >
-          <p>&copy; 2026 WarriorOGZz. All rights reserved.</p>
-        </motion.div>
+        <p className="text-gray-600 text-sm">© 2026 WarriorOGZz. All rights reserved.</p>
       </div>
     </section>
   );
